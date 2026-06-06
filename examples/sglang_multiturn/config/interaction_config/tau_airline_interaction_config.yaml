@@ -1,0 +1,15 @@
+interaction:
+  - name: "tau_airline"
+    class_name: "verl.interactions.tau_airline_interaction.TauAirlineInteraction"
+    config:
+      model: "openai/deepseek-ai/DeepSeek-V3.2"
+      # model: "openai/Qwen/Qwen2.5-72B-Instruct"
+      # TRICK 3: PRM-Lite reward. Use "binary" to recover the old strict
+      # outcome-only Tau Airline reward.
+      reward_mode: "prm_lite"
+      prm_lite_weight: 0.3
+      prm_normalize_mode: "mean_clip"
+      prm_clip_min: -0.5
+      prm_clip_max: 0.5
+      prm_rule_version: "legacy"
+      truncation_penalty: 0.05
